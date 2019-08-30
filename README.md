@@ -1,6 +1,10 @@
 # FembedSDK
 .NET API Library for fembed.net
 
+`Download:`[https://github.com/jamesheck2019/FembedSDK/releases](https://github.com/jamesheck2019/FembedSDK/releases)<br>
+`NuGet:`
+[![NuGet](https://img.shields.io/nuget/v/DeQmaTech.FembedSDK.svg?style=flat-square&logo=nuget)](https://www.nuget.org/packages/DeQmaTech.FembedSDK)<br>
+
 # Requirements
 1. .NET 4.5.2
 1. Newtonsoft.Json
