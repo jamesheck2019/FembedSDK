@@ -1,34 +1,36 @@
-Imports System
-Imports System.Collections.Generic
-Imports System.IO
-Imports System.Threading
-Imports System.Threading.Tasks
-Imports FembedSDK.JSON
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using FembedSDK.JSON;
 
-Namespace FembedSDK
-	Public Interface IClient
-		Function ComplaintsList() As Task(Of JSON_UserInfo)
+namespace FembedSDK
+{
+	public interface IClient
+	{
+		Task<JSON_UserInfo> ComplaintsList();
 
-		Function UserInfo() As Task(Of JSON_UserInfo)
+		Task<JSON_UserInfo> UserInfo();
 
-		Function UploadLocalFile(FileToUP As Object, TheUpType As FClient.UploadTypes, DestinationFolderID As String, Optional Filename As String = Nothing, Optional ReportCls As IProgress(Of ReportStatus) = Nothing, Optional _proxi As ProxyConfig = Nothing, Optional token As CancellationToken = Nothing) As Task(Of JSON_CompleteUpload)
+		Task<JSON_CompleteUpload> UploadLocalFile(object FileToUP, FClient.UploadTypes TheUpType, string DestinationFolderID, string Filename = null, IProgress<ReportStatus> ReportCls = null, ProxyConfig _proxi = null, CancellationToken token = default(CancellationToken));
 
-		Function YoutubeRemoteUpload(FilesUrls As List(Of String)) As Task(Of JSON_YoutubeRemoteUpload)
+		Task<JSON_YoutubeRemoteUpload> YoutubeRemoteUpload(List<string> FilesUrls);
 
-		Function RemoteUpload(FilesUrls As List(Of String)) As Task(Of JSON_YoutubeRemoteUpload)
+		Task<JSON_YoutubeRemoteUpload> RemoteUpload(List<string> FilesUrls);
 
-		Function GetDirectUrl(VideoUrl As String) As Task(Of JSON_GetDirectUrl)
+		Task<JSON_GetDirectUrl> GetDirectUrl(string VideoUrl);
 
-		Function DownloadFile(FileUrl As String, FileSaveDir As String, FileName As String, Optional ReportCls As IProgress(Of ReportStatus) = Nothing, Optional _proxi As ProxyConfig = Nothing, Optional TimeOut As Integer = 60, Optional token As CancellationToken = Nothing) As Task
+		Task DownloadFile(string FileUrl, string FileSaveDir, string FileName, IProgress<ReportStatus> ReportCls = null, ProxyConfig _proxi = null, int TimeOut = 60, CancellationToken token = default(CancellationToken));
 
-		Function DownloadFileAsStream(FileUrl As String, Optional ReportCls As IProgress(Of ReportStatus) = Nothing, Optional _proxi As ProxyConfig = Nothing, Optional TimeOut As Integer = 60, Optional token As CancellationToken = Nothing) As Task(Of Stream)
+		Task<Stream> DownloadFileAsStream(string FileUrl, IProgress<ReportStatus> ReportCls = null, ProxyConfig _proxi = null, int TimeOut = 60, CancellationToken token = default(CancellationToken));
 
-		Function ListRemoteUpload() As Task(Of JSON_YoutubeRemoteUpload)
+		Task<JSON_YoutubeRemoteUpload> ListRemoteUpload();
 
-		Function RemoteUploadStatus(JobID As String) As Task(Of JSON_RemoteUploadStatus)
+		Task<JSON_RemoteUploadStatus> RemoteUploadStatus(string JobID);
 
-		Function SetVideoThumbnail_Local(VideoID As String, ImageFile As String) As Task(Of JSON_SetVideoThumbnail)
+		Task<JSON_SetVideoThumbnail> SetVideoThumbnail_Local(string VideoID, string ImageFile);
 
-		Function SetVideoThumbnail_Remote(VideoID As String, ImageFile As String) As Task(Of JSON_SetVideoThumbnail)
-	End Interface
-End Namespace
+		Task<JSON_SetVideoThumbnail> SetVideoThumbnail_Remote(string VideoID, string ImageFile);
+	}
+}
