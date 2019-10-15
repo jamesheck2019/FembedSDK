@@ -1,15 +1,20 @@
-# FembedSDK
-.NET API Library for fembed.net
+## FembedSDK
 
 `Download:`[https://github.com/jamesheck2019/FembedSDK/releases](https://github.com/jamesheck2019/FembedSDK/releases)<br>
 `NuGet:`
 [![NuGet](https://img.shields.io/nuget/v/DeQmaTech.FembedSDK.svg?style=flat-square&logo=nuget)](https://www.nuget.org/packages/DeQmaTech.FembedSDK)<br>
 
-# Requirements
-1. .NET 4.5.2
-1. Newtonsoft.Json
 
-# List of Functions
+**Features**
+
+* Assemblies for .NET 4.5.2 and .NET Standard 2.0 and .NET Core 2.1
+* Just one external reference (Newtonsoft.Json)
+* Easy installation using NuGet
+* Upload/Download tracking support
+* Proxy Support
+* Upload/Download cancellation support
+
+# Functions
 * DownloadFile
 * DownloadFileAsStream
 * GetDirectUrl
@@ -24,9 +29,6 @@
 * UploadLocalFile
 * UserInfo
 * YoutubeRemoteUpload
-
-# Functions:
-[https://github.com/jamesheck2019/FembedSDK/blob/master/IClient.cs](https://github.com/jamesheck2019/FembedSDK/blob/master/IClient.cs)
 
 # Example:
 set client
